@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../bottom_bar/bottombar.dart';
 import '../home/home_screen.dart';
 
 class Intro3 extends StatefulWidget {
@@ -24,7 +25,7 @@ class _Intro3State extends State<Intro3> {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: InkWell(onTap: (){
-                      Get.to(Home_screnn());
+                      Get.to(Bottombar());
                   },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 17),

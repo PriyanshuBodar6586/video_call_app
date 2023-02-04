@@ -16,6 +16,7 @@ class _Start_screenState extends State<Start_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Container(
         child: Stack(
           alignment: Alignment.bottomCenter,

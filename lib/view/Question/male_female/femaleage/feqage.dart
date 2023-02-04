@@ -67,15 +67,19 @@ class _FeqageState extends State<Feqage> {
                       InkWell(onTap: (){
                         Get.to(Done());
                       },
-                        child: Container(
-                          height: 50,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            color: Colors.white30,
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Center(child: Text("51  to  75",style: TextStyle(color: Colors.white,fontSize: 27,)),
+                        child: InkWell(onTap: (){
+                          Get.to(Done());
+                        },
+                          child: Container(
+                            height: 50,
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.white30,
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Center(child: Text("51  to  75",style: TextStyle(color: Colors.white,fontSize: 27,)),
+                            ),
                           ),
                         ),
                       ),

@@ -1,75 +1,63 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
+late List<CameraDescription> _cameras;
 
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:provider/provider.dart';
-import 'package:video_call_app/provider/video_provider.dart';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-import 'home/home_screen.dart';
-
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _cameras = await availableCameras();
+  runApp(const CameraApp());
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+/// CameraApp is the Main Application.
+class CameraApp extends StatefulWidget {
+  /// Default Constructor
+  const CameraApp({Key? key}) : super(key: key);
+
+  @override
+  State<CameraApp> createState() => _CameraAppState();
+}
+
+class _CameraAppState extends State<CameraApp> {
+  late CameraController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = CameraController(_cameras[0], ResolutionPreset.max);
+    controller.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    }).catchError((Object e) {
+      if (e is CameraException) {
+        switch (e.code) {
+          case 'CameraAccessDenied':
+          // Handle access errors here.
+            break;
+          default:
+          // Handle other errors here.
+            break;
+        }
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    List WidgetsList=[Home_screnn(),Home_screnn(),Home_screnn(),Home_screnn()];
-    return  Scaffold(
-      body: WidgetsList[Provider.of<Video_Provider>(context,listen: true).i],
-      bottomNavigationBar: GNav(
-         selectedIndex:Provider.of<Video_Provider>(context,listen:true).i,
-          // onTap:(value){
-          //   Provider.of<bootam_Provider>(context,listen:false).changeicon(value);
-          // },
-          // currentIndex:Provider.of<bootam_Provider>(context,listen:true).i,
-        onTabChange: (value){
-          Provider.of<Video_Provider>(context,listen: false).changeicon(value);
-        },
-        rippleColor: Colors.grey.shade800, // tab button ripple color when pressed
-        hoverColor: Colors.grey.shade700, // tab button hover color
-        haptic: true, // haptic feedback
-        tabBorderRadius: 15,
-        //tabActiveBorder: Border.all(color: Colors.black, width: 1), // tab button border
-        //tabBorder: Border.all(color: Colors.grey, width: 1), // tab button border
-        // tabShadow: [
-        //   BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)], // tab button shadow
-        curve: Curves.easeOut, // tab animation curves
-        duration: Duration(milliseconds: 300), // tab animation duration
-        gap: 8, // the tab button gap between icon and text
-        color: Colors.grey[800], // unselected icon color
-        activeColor: Colors.white, // selected icon and text color
-        iconSize: 24, // tab button icon size
-        tabBackgroundColor: Colors.blue.shade300, // selected tab background color
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // navigation bar padding
-        tabs: [
-          GButton(
-            icon: Icons.home,
-            text: 'Home',
-          ),
-          GButton(
-            icon: Icons.favorite,
-            text: 'Likes',
-          ),
-          GButton(
-            icon: Icons.search,
-            text: 'Search',
-          ),
-          GButton(
-            icon: Icons.person,
-            text: 'Profile',
-          )
-        ]
-    )
-
-
+    if (!controller.value.isInitialized) {
+      return Container();
+    }
+    return MaterialApp(
+      home: CameraPreview(controller),
     );
   }
 }
-
-
