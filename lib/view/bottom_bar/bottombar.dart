@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:video_call_app/controller/home_Cotrollrt.dart';
 import 'package:video_call_app/view/Question/done/done.dart';
+import 'package:video_call_app/view/home/home_screen.dart';
 
 class Bottombar extends StatefulWidget {
   const Bottombar({Key? key}) : super(key: key);
@@ -15,78 +17,57 @@ class _BottombarState extends State<Bottombar> {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-      body: Container(
-        child: Stack(
-          alignment: Alignment.bottomCenter,
+       bottomNavigationBar: GNav(
+         onTabChange: (value){
+           home_controller.changeicon(value);
+         },
+           selectedIndex: home_controller.i.value,
+           rippleColor: Colors.grey.shade800, // tab button ripple color when pressed
+           hoverColor: Colors.grey.shade700, // tab button hover color
+           haptic: true, // haptic feedback
+           tabBorderRadius: 15,
+           tabActiveBorder: Border.all(color: Colors.black, width: 1), // tab button border
+           tabBorder: Border.all(color: Colors.grey, width: 1), // tab button border
+           tabShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)], // tab button shadow
+           curve: Curves.easeOutExpo, // tab animation curves
+           duration: Duration(milliseconds: 900), // tab animation duration
+           gap: 8, // the tab button gap between icon and text
+           color: Colors.grey[800], // unselected icon color
+           activeColor: Colors.purple, // selected icon and text color
+           iconSize: 24, // tab button icon size
+           tabBackgroundColor: Colors.purple.withOpacity(0.1), // selected tab background color
+           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5), // navigation bar padding
+           tabs: [
+             GButton(
+               icon:Icons.home,
+               text: 'Home',
+             ),
+             GButton(
+               icon: Icons.favorite,
+               text: 'Likes',
+             ),
+             GButton(
+               icon:Icons.search,
+               text: 'Search',
+             ),
+             GButton(
+               icon: Icons.person,
+               text: 'Profile',
+             )
+           ]
+       ),
+      body: Obx(
+            () => IndexedStack(
+          index:home_controller.i.value,
           children: [
-            Image.asset(
-              "asset/image/iPhone 14 Pro Max - 1 (3).png",
-              height: double.infinity,
-              width: double.infinity,
-              fit: BoxFit.fill,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      height: 50,
-                      width: 355,
-                      decoration: BoxDecoration(
-                        color: Colors.white38,
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ElevatedButton.icon(
-                            label: Text("Home"),
-                            icon: const Icon(
-                              Icons.ac_unit_outlined,
-                            ),
-                            onPressed: () {
-                              Get.to(Done());
-                            },
-                          ),
-                          ElevatedButton.icon(
-                            label: Text("view"),
-                            icon: const Icon(
-                              Icons.access_time_filled_outlined,
-                            ),
-                            onPressed: () {
-                              Get.to(Done());
-                            },
-                          ),
-                          ElevatedButton.icon(
-                            label: Text("person"),
-                            icon: const Icon(
-                              Icons.dark_mode_rounded,
-                            ),
-                            onPressed: () {
-                              Get.to(Done());
-                            },
-                          ),
-                          ElevatedButton.icon(
-                            label: Text("lodo"),
-                            icon: const Icon(
-                              Icons.add_alert_outlined,
-                            ),
-                            onPressed: () {
-                              Get.to(Done());
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            )
+             Home_screnn(),
+             Done(),
+             Done(),
+             Done(),
           ],
         ),
       ),
+
     );
   }
   //Widget Button(String text,String s1) {

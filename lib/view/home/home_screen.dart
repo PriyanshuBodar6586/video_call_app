@@ -26,14 +26,13 @@ class _Home_scrennState extends State<Home_screnn> {
             return Column(
               children: [
                 Container(
-                  height: 175,
+                  height: 190,
                   width: MediaQuery.of(context).size.width*0.48,
                    decoration: BoxDecoration(
-
                    color: Colors.amberAccent,
                      borderRadius: BorderRadius.circular(10),
                    ),
-                             ),
+                ),
 
               ],
             );

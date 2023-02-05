@@ -15,7 +15,7 @@ void main() {
   runApp(GetMaterialApp(
 
     debugShowCheckedModeBanner: false,
-    initialRoute: 'demo',
+   initialRoute: 'bootom',
     routes: {
       '/': (contest) => Start_screen(),
       '/hot_fat': (contest) => Hot_Fat(),
@@ -23,7 +23,6 @@ void main() {
       '/lg': (contest) => Lock_Global(),
       '/Done': (contest) => Done(),
       'demo': (context) => CameraApp(),
-      'Home': (context) => Home_screnn(),
       'bootom': (contest) => Bottombar(),
     },
   ));
