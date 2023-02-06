@@ -43,6 +43,8 @@ dependencies:
   sizer: ^2.0.15
   camera: ^0.10.3
   permission_handler: ^10.2.0
+  videosdk: ^1.0.10
+  face_camera: ^0.0.6
 
 
 

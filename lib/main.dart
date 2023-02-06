@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_call_app/controller/home_Cotrollrt.dart';
@@ -14,19 +15,19 @@ import 'view/home/home_screen.dart';
 
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
+     WidgetsFlutterBinding.ensureInitialized();
+     await FaceCamera.initialize();
   runApp(GetMaterialApp(
 
     debugShowCheckedModeBanner: false,
    initialRoute: 'demo',
     routes: {
-      '/': (contest) => CameraApp(),
+      '/': (contest) => Home_screnn(),
       '/hot_fat': (contest) => Hot_Fat(),
       '/fq': (contest) => First_Question(),
       '/lg': (contest) => Lock_Global(),
       '/Done': (contest) => Done(),
-      'demo': (context) => CameraApp(),
+      'demo': (context) => MyApp(),
       'bootom': (contest) => Bottombar(),
     },
   ));
