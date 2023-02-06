@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_call_app/controller/home_Cotrollrt.dart';
@@ -11,13 +12,16 @@ import 'package:video_call_app/view/starting%20screen/start%20screen.dart';
 import 'view/Question/loc_glob/loc_glo.dart';
 import 'view/home/home_screen.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(GetMaterialApp(
 
     debugShowCheckedModeBanner: false,
-   initialRoute: 'bootom',
+   initialRoute: 'demo',
     routes: {
-      '/': (contest) => Start_screen(),
+      '/': (contest) => CameraApp(),
       '/hot_fat': (contest) => Hot_Fat(),
       '/fq': (contest) => First_Question(),
       '/lg': (contest) => Lock_Global(),

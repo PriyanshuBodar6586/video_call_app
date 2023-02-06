@@ -20,7 +20,7 @@ class _Home_scrennState extends State<Home_screnn> {
         ),
         body: GridView.builder(
           gridDelegate:
-          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 300),
           itemCount:20,
           itemBuilder: (context, index) {
             return Column(

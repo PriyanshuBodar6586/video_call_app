@@ -1,14 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
 late List<CameraDescription> _cameras;
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  _cameras = await availableCameras();
-  runApp(const CameraApp());
-}
 
 /// CameraApp is the Main Application.
 class CameraApp extends StatefulWidget {
@@ -25,6 +18,20 @@ class _CameraAppState extends State<CameraApp> {
   @override
   void initState() {
     super.initState();
+    getCamera();
+
+  }
+
+  void getCamera()
+async  {
+    _cameras = await availableCameras();
+
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
     controller = CameraController(_cameras[0], ResolutionPreset.max);
     controller.initialize().then((_) {
       if (!mounted) {
@@ -38,7 +45,7 @@ class _CameraAppState extends State<CameraApp> {
           // Handle access errors here.
             break;
           default:
-          // Handle other errors here.
+
             break;
         }
       }
@@ -56,8 +63,8 @@ class _CameraAppState extends State<CameraApp> {
     if (!controller.value.isInitialized) {
       return Container();
     }
-    return MaterialApp(
-      home: CameraPreview(controller),
-    );
+    return  Container(height:50,width:50,child: CameraPreview(controller));
   }
 }
+
+//face_camera: ^0.0.6
