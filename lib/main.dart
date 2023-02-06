@@ -20,9 +20,9 @@ Future<void> main() async {
   runApp(GetMaterialApp(
 
     debugShowCheckedModeBanner: false,
-   initialRoute: 'demo',
+   //initialRoute: 'demo',
     routes: {
-      '/': (contest) => Home_screnn(),
+      '/': (contest) => Start_screen(),
       '/hot_fat': (contest) => Hot_Fat(),
       '/fq': (contest) => First_Question(),
       '/lg': (contest) => Lock_Global(),

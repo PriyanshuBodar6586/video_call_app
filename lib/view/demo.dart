@@ -29,7 +29,7 @@
 // }
 
 import 'dart:io';
-
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import 'package:face_camera/face_camera.dart';
@@ -56,9 +56,7 @@ class _MyAppState extends State<MyApp> {
             alignment: Alignment.bottomCenter,
             children: [
               Image.file(_capturedImage!,
-                fit: BoxFit.fill,
-                width: 200,
-                height: 200,
+
 
               ),
               // ElevatedButton(
@@ -73,16 +71,45 @@ class _MyAppState extends State<MyApp> {
           ),
         );
       }
-      return Container(
-        height: 300,
-        width: 300,
-        child: SmartFaceCamera(
-            autoCapture: true,
-            defaultCameraLens: CameraLens.front,
-            onCapture: (File? image) {
-               setState(() => _capturedImage = image);
-            },
+      return Stack(
+        alignment: Alignment.bottomRight,
+        children: [
+          Center(
+            child: Container(
+              color: Colors.pink,
+              height: double.infinity,
+              width: double.infinity,
+
+              /*
+                  -----------------------------------------------
+                  ----------------------------------------
+                  ---------------------------
+                  -----------------------
+                  ---------------------
+                  --------------------------
+                  --------------------------
+                  ------------------------------
+                  ---------------------------------
+                  -----------------------------------------------
+
+               */
+            ),
           ),
+          ClipRRect(borderRadius: BorderRadius.circular(10),
+            child: Container(
+
+              height: MediaQuery.of(context).size.height*0.28,
+              width: MediaQuery.of(context).size.width*0.32,
+              child: SmartFaceCamera(
+                //  autoCapture: true,
+                  defaultCameraLens: CameraLens.front,
+                  onCapture: (File? image) {
+                    _capturedImage = image;
+                  },
+                ),
+            ),
+          ),
+        ],
       );
     }
     ),

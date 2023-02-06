@@ -17,7 +17,7 @@ class _Intro2State extends State<Intro2> {
         child: Stack(
           alignment: Alignment.bottomRight,
           children: [
-            Image.asset("asset/image/allen.eenn-20230203-0003.jpg",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+            Image.asset("asset/image/video.svg",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Align(

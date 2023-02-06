@@ -19,7 +19,7 @@ class _Intro3State extends State<Intro3> {
         child: Stack(
           alignment: Alignment.bottomRight,
           children: [
-            Image.asset("asset/image/allen.eenn-20230203-0004.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+            Image.asset("asset/image/LOC (1).svg",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Align(
