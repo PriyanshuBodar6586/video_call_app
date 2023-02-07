@@ -6,9 +6,7 @@ import 'package:video_call_app/view/Question/done/done.dart';
 import 'package:video_call_app/view/Question/hot_fet/hot_fat.dart';
 import 'package:video_call_app/view/Question/male_female/first.dart';
 import 'package:video_call_app/view/bottom_bar/bottombar.dart';
-import 'package:video_call_app/view/demo.dart';
 import 'package:video_call_app/view/starting%20screen/start%20screen.dart';
-
 import 'view/Question/loc_glob/loc_glo.dart';
 
 
