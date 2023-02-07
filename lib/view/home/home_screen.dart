@@ -25,21 +25,18 @@ class _Home_scrennState extends State<Home_screnn> {
         },
           child: GridView.builder(
             gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 250),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisExtent: 60.w),
             itemCount:20,
             itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height*0.35,
-                    width: MediaQuery.of(context).size.width*0.48,
-                     decoration: BoxDecoration(
-                     color: Colors.amberAccent,
-                       borderRadius: BorderRadius.circular(10),
-                     ),
-                  ),
-
-                ],
+              return Padding(padding: EdgeInsets.all(03),
+                child: Container(
+                  height: 20.w,
+                  width: 20.w,
+                   decoration: BoxDecoration(
+                   color: Colors.amberAccent,
+                     borderRadius: BorderRadius.circular(10),
+                   ),
+                ),
               );
             },
           ),

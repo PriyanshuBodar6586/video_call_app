@@ -26,14 +26,7 @@ class _Call_screenState extends State<Call_screen> {
 
 
                 ),
-                // ElevatedButton(
-                //     onPressed: () => setState(() => _capturedImage = null),
-                //     child: const Text(
-                //       'Capture Again',
-                //       textAlign: TextAlign.center,
-                //       style: TextStyle(
-                //           fontSize: 14, fontWeight: FontWeight.w700),
-                //     ))
+
               ],
             ),
           );
@@ -47,23 +40,7 @@ class _Call_screenState extends State<Call_screen> {
                 height: double.infinity,
                 width: double.infinity,
 
-                /*
-                  -----------------------------------------------
-                  ----------------------------------------
-                  ---------------------------
-                  -----------------------
 
-                  video
-
-
-                  ---------------------
-                  --------------------------
-                  --------------------------
-                  ------------------------------
-                  ---------------------------------
-                  -----------------------------------------------
-
-               */
               ),
             ),
             ClipRRect(borderRadius: BorderRadius.circular(10),

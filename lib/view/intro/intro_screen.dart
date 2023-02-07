@@ -18,7 +18,7 @@ class _intro1State extends State<intro1> {
         child: Stack(
           alignment: Alignment.bottomRight,
           children: [
-            Image.asset("asset/image/heart.svg",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+            Image.asset("asset/image/heart.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Align(
@@ -35,11 +35,11 @@ class _intro1State extends State<intro1> {
                           height: 40,
                           width: 100,
                           decoration: BoxDecoration(
-                            color: Colors.white30,
+                            color: Colors.black38,
                             border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Center(child: Text("Next",style: TextStyle(color: Colors.black,fontSize: 20,)),
+                          child: Center(child: Text("Next",style: TextStyle(color: Colors.white,fontSize: 20,)),
                           ),
                         ),
                       ),

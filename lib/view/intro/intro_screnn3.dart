@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../bottom_bar/bottombar.dart';
@@ -19,7 +20,7 @@ class _Intro3State extends State<Intro3> {
         child: Stack(
           alignment: Alignment.bottomRight,
           children: [
-            Image.asset("asset/image/LOC (1).svg",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+            Image.asset("asset/image/LOC.png",height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
             Column(mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Align(
@@ -33,11 +34,11 @@ class _Intro3State extends State<Intro3> {
                         height: 40,
                         width: 100,
                         decoration: BoxDecoration(
-                          color: Colors.white30,
+                          color: Colors.black38,
                           border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Center(child: Text("Next",style: TextStyle(color: Colors.black,fontSize: 20,)),
+                        child: Center(child: Text("Next",style: TextStyle(color: Colors.white,fontSize: 20,)),
                         ),
                       ),
                     ),

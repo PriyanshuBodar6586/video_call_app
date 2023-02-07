@@ -10,4 +10,10 @@ class Home_Controller extends GetxController{
   void changeicon(int index){
     i.value = index;
   }
+  List  meet = [
+
+
+
+
+  ];
 }
