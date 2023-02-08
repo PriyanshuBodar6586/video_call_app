@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sizer/sizer.dart';
 
+import '../controller/home_Cotrollrt.dart';
+import '../model/modeldata.dart';
 import 'lottie_screen/lottie_screeen.dart';
 
 class Match_screen extends StatefulWidget {
@@ -13,6 +15,12 @@ class Match_screen extends StatefulWidget {
 }
 
 class _Match_screenState extends State<Match_screen> {
+  @override
+  void initState() {
+
+    super.initState();
+  }
+  Home_Controller home_controller = Get.put(Home_Controller());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,6 +43,7 @@ class _Match_screenState extends State<Match_screen> {
                 alignment: Alignment.bottomCenter,
                 child: InkWell(
                   onTap: (){
+                    home_controller.Datapickkk = Modeldata();
                    Get.to(Lottie_Screen());
                   },
                   child: Container(

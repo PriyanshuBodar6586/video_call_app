@@ -15,7 +15,7 @@ class Lottie_Screen extends StatefulWidget {
 class _Lottie_ScreenState extends State<Lottie_Screen> {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 0), () {
       return Get.to(Rvideo());
 
     });

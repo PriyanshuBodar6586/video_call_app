@@ -17,15 +17,16 @@ Future<void> main() async {
     return  GetMaterialApp(
 
       debugShowCheckedModeBanner: false,
-      initialRoute: 'demo',
+      initialRoute: 'bootom',
       routes: {
         '/': (contest) => Start_screen(),
         '/hot_fat': (contest) => Hot_Fat(),
         '/fq': (contest) => First_Question(),
         '/lg': (contest) => Lock_Global(),
         '/Done': (contest) => Done(),
-        //'demo': (context) => Basic(),
+       // 'demo': (context) => VideoApp(),
         'bootom': (contest) => Bottombar(),
+
       },
     );
   },
